@@ -25,6 +25,11 @@ jobs:
       - name: 设置环境变量
         run: |
           echo "FORCE_JAVASCRIPT_ACTIONS_TO_NODE20=true" >> "$GITHUB_ENV"
+
+      - name: Use environment variable
+        run: |
+          echo "The value of MY_ENV_VAR is $MY_ENV_VAR"
+      
       - name: 开始打包
         run: |
           mvn -B clean package -Dmaven.test.skip=true --file pom.xml -T 4
